@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+  labels:
+    app: java-application
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: java-application
+  template:
+    metadata:
+      labels:
+        app: java-application
+    spec:
+      containers:
+      - name: java-application
+        image: skc3766/java-image:latest
+        ports:
+        - containerPort: 8080
